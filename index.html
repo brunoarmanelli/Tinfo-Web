@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tinfo - Painel</title>
+    <link href="assets/icons/favicon.png" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
+
+    <!-- VENDORS -->
+    <!-- v2.0.0 -->
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="vendors/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="vendors/ladda/dist/ladda-themeless.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/fullcalendar/dist/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap-sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="vendors/summernote/dist/summernote.css">
+    <link rel="stylesheet" type="text/css" href="vendors/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/ionrangeslider/css/ion.rangeSlider.css">
+    <link rel="stylesheet" type="text/css" href="vendors/datatables/media/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="vendors/c3/c3.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/chartist/dist/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="vendors/jquery-steps/demo/css/jquery.steps.css">
+    <link rel="stylesheet" type="text/css" href="vendors/dropify/dist/css/dropify.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/font-linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="vendors/font-icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/cleanhtmlaudioplayer/src/player.css">
+    <link rel="stylesheet" type="text/css" href="vendors/cleanhtmlvideoplayer/src/player.css">
+    <link rel="stylesheet" type="text/css" href="vendors/cleanhtmlvideoplayer/src/player.css">
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="vendors/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="vendors/spin.js/spin.js"></script>
+    <script src="vendors/ladda/dist/ladda.min.js"></script>
+    <script src="vendors/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+    <script src="vendors/html5-form-validation/dist/jquery.validation.min.js"></script>
+    <script src="vendors/jquery-typeahead/dist/jquery.typeahead.min.js"></script>
+    <script src="vendors/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+    <script src="vendors/autosize/dist/autosize.min.js"></script>
+    <script src="vendors/bootstrap-show-password/bootstrap-show-password.min.js"></script>
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="vendors/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+    <script src="vendors/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+    <script src="vendors/summernote/dist/summernote.min.js"></script>
+    <script src="vendors/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="vendors/ionrangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="vendors/nestable/jquery.nestable.js"></script>
+    <script src="vendors/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables/media/js/dataTables.bootstrap4.js"></script>
+    <script src="vendors/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
+    <script src="vendors/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="vendors/editable-table/mindmup-editabletable.js"></script>
+    <script src="vendors/d3/d3.min.js"></script>
+    <script src="vendors/c3/c3.min.js"></script>
+    <script src="vendors/chartist/dist/chartist.min.js"></script>
+    <script src="vendors/peity/jquery.peity.min.js"></script>
+    <script src="vendors/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="vendors/jquery-countTo/jquery.countTo.js"></script>
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <script src="vendors/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="vendors/dropify/dist/js/dropify.min.js"></script>
+    <script src="vendors/cleanhtmlaudioplayer/src/jquery.cleanaudioplayer.js"></script>
+    <script src="vendors/cleanhtmlvideoplayer/src/jquery.cleanvideoplayer.js"></script>
+    <script src="vendors/d3-dsv/dist/d3-dsv.js"></script>
+    <script src="vendors/d3-time-format/dist/d3-time-format.js"></script>
+    <script src="vendors/techan/dist/techan.min.js"></script>
+
+    <!-- CLEAN UI HTML ADMIN TEMPLATE MODULES-->
+    <!-- v2.0.0 -->
+    <link rel="stylesheet" type="text/css" href="components/core/common/core.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/core/widgets/widgets.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/vendors/common/vendors.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/settings/common/settings.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/settings/themes/themes.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/menu-left/common/menu-left.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/menu-right/common/menu-right.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/top-bar/common/top-bar.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/footer/common/footer.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/pages/common/pages.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/ecommerce/common/ecommerce.cleanui.css">
+    <link rel="stylesheet" type="text/css" href="components/apps/common/apps.cleanui.css">
+    <script src="components/menu-left/common/menu-left.cleanui.js"></script>
+    <script src="components/menu-right/common/menu-right.cleanui.js"></script>
+</head>
+<body class="config--vertical config--borderLess menu-left--colorful menu-left--shadow">
+
+<nav class="menu-left">
+    <div class="menu-left__lock menu-left__action--menu-toggle">
+        <div class="menu-left__pin-button">
+            <div><!-- --></div>
+        </div>
+    </div>
+    <div class="menu-left__logo">
+        <a href="dashboards-alpha.html">
+            <img src="components/dummy-assets/common/img/logo-inverse.png" alt="" />
+        </a>
+    </div>
+    <div class="menu-left__inner">
+        <ul class="menu-left__list menu-left__list--root">
+
+            <li class="menu-left__item menu-left__item--active">
+                <a href="index.html">
+                    <span class="menu-left__icon icmn-home"></span>
+                    Painel
+                </a>
+            </li>
+
+
+            <li class="menu-left__divider"><!-- --></li>
+
+            <li  class="menu-left__item">
+                <a href="ic.html">
+                    <span class="menu-left__icon icmn-tree"></span>
+                    Itens de Configuração
+                </a>
+            </li>
+            <li  class="menu-left__item">
+                <a href="apps-mail.html">
+                    <span class="menu-left__icon icmn-users"></span>
+                    Departamentos
+                </a>
+            </li>
+            <li  class="menu-left__item">
+                <a href="apps-mail.html">
+                    <span class="menu-left__icon icmn-user"></span>
+                    Usuários
+                </a>
+            </li>
+
+            <li class="menu-left__divider"><!-- --></li>
+
+
+            <li  class="menu-left__item">
+                <a href="apps-mail.html">
+                    <span class="menu-left__icon icmn-truck"></span>
+                    Fornecedores
+                </a>
+            </li>
+
+            <li class="menu-left__divider"><!-- --></li>
+
+            <li  class="menu-left__item">
+                <a href="apps-mail.html">
+                    <span class="menu-left__icon icmn-file-text2"></span>
+                    Relatórios
+                </a>
+            </li>
+
+            <li class="menu-left__divider"><!-- --></li>
+        </ul>
+    </div>
+</nav>
+<div class="top-bar">
+  <!-- left aligned items -->
+  <div class="top-bar__left">
+    <div class="top-bar__logo">
+      <a href="dashboards-alpha.html">
+        <img src="components/dummy-assets/common/img/logo.png" alt="" />
+      </a>
+    </div>
+
+  </div>
+  <!-- right aligned items -->
+  <div class="top-bar__right">
+    <div class="top-bar__item">
+      <div class="dropdown top-bar__avatar-dropdown">
+        <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="top-bar__avatar">
+                <img src="assets/img/lindo-deuso-maravilhoso.jpg" alt="" />
+            </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" role="menu">
+          <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon icmn-user"></i> Perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon icmn-exit"></i> Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="utils__content">
+
+
+<!-- START: dashboard beta -->
+<nav class="utils__top-sidebar utils__top-sidebar--bg">
+    <div class="pull-right">
+        <a href="javascript: void(0);" class="btn btn-sm btn-outline-default ladda-button">
+            Atualizar
+            <span class="hidden-sm-down"> Painel</span>
+        </a>
+    </div>
+    <span class="font-size-18 d-block mb-2">
+        <span class="text-muted">Início ·</span>
+        <strong>Painel</strong>
+        <small class="text-muted">estatísticas e dados gerais</small>
+    </span>
+</nav>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="utils__sortable" id="left-col">
+
+            <div class="card" data-order-id="card-1">
+                <div class="card-header">
+                    <div class="pull-right utils__sortable__control">
+                        <i class="icmn-minus mr-2 utils__sortable__collapse" data-toggle="tooltip" data-placement="left"
+                            title=""
+                            data-original-title="Comprimir"></i>
+                        <i class="icmn-plus mr-2 utils__sortable__uncollapse" data-toggle="tooltip"
+                            data-placement="left" title=""
+                            data-original-title="Uncollapse"></i>
+                        <i class="icmn-cross utils__sortable__close" data-toggle="tooltip" data-placement="left"
+                            title=""
+                            data-original-title="Excluir"></i>
+                    </div>
+                    <div class="utils__title"><strong>Acesso Rápido</strong></div>
+                    <div class="utils__titleDescription">Frequentemente acessados</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <div class="infoCard infoCard--interactive infoCard--aroundBorder">
+                                <div class="infoCard__icon text-center font-size-30">
+                                    <i class="icmn-truck"></i>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    <div class="mb-2">
+                                        <p> Fornecedores </p>
+                                    </div>
+                                    <a href="javascript: void(0);" class="btn btn-outline-primary">
+                                        Acessar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="infoCard infoCard--interactive infoCard--whiteFont infoCard--aroundBorder bg-success">
+                                <div class="infoCard__icon text-center font-size-30">
+                                    <i class="icmn-display"></i>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    <div class="mb-2">
+                                        <p> Computadores </p>
+                                    </div>
+                                    <a href="javascript: void(0);" class="btn btn-outline-success">
+                                        Acessar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="infoCard infoCard--interactive infoCard--whiteFont infoCard--aroundBorder bg-danger">
+                                <div class="infoCard__icon text-center font-size-30">
+                                    <i class="icmn-users"></i>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    <div class="mb-2">
+                                        <p> Departamentos </p>
+                                    </div>
+                                    <a href="javascript: void(0);" class="btn btn-outline-danger">
+                                        Acessar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="utils__margin-fix"><!-- --></div>
+                </div>
+            </div>
+
+            <div class="card" data-order-id="card-2">
+                <div class="card-header">
+                    <div class="pull-right utils__sortable__control">
+                        <i class="icmn-minus mr-2 utils__sortable__collapse" data-toggle="tooltip" data-placement="left"
+                           title=""
+                           data-original-title="Comprimir"></i>
+                        <i class="icmn-plus mr-2 utils__sortable__uncollapse" data-toggle="tooltip"
+                           data-placement="left" title=""
+                           data-original-title="Uncollapse"></i>
+                        <i class="icmn-cross utils__sortable__close" data-toggle="tooltip" data-placement="left"
+                           title=""
+                           data-original-title="Excluir"></i>
+                    </div>
+                    <div class="utils__title"><strong>Novos Fornecedores</strong></div>
+                    <div class="utils__titleDescription">Block with important Task Table information</div>
+                </div>
+                <div class="card-body">
+                    <table class="table mb-0">
+                        <thead>
+                        <tr>
+                            <th class="border-top-0">#</th>
+                            <th class="border-top-0">First Name</th>
+                            <th class="border-top-0">Username</th>
+                            <th class="border-top-0 hidden-lg-down">Levels</th>
+                            <th class="border-top-0"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td><a href="javascript: void(0);" class="utils__link--underlined utils__link--blue"
+                                   data-toggle="tooltip"
+                                   data-placement="right" title="" data-original-title="User #1">Mark Stevenson</a></td>
+                            <td>@mdo</td>
+                            <td class="hidden-lg-down">
+                                <div class="utils__steps-inline d-block">
+                                    <a href="javascript: void(0);" class="utils__step utils__step--success">1</a>
+                                    <a href="javascript: void(0);" class="utils__step utils__step--success">2</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown pull-right">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a class="dropdown-item" href="javascript: void(0)">Action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Another action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: void(0)">Separated link</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td><a href="javascript: void(0);" class="utils__link--underlined utils__link--blue"
+                                   data-toggle="tooltip"
+                                   data-placement="right" title="" data-original-title="User #2">Jacob Hoffman</a></td>
+                            <td>@fat</td>
+                            <td class="hidden-lg-down">
+                                <div class="utils__steps-inline d-block">
+                                    <a href="javascript: void(0);" class="utils__step utils__step--success">1</a>
+                                    <a href="javascript: void(0);" class="utils__step">2</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown pull-right">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a class="dropdown-item" href="javascript: void(0)">Action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Another action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: void(0)">Separated link</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td><a href="javascript: void(0);" class="utils__link--underlined utils__link--blue"
+                                   data-toggle="tooltip"
+                                   data-placement="right" title="" data-original-title="User #3">Larry Page</a></td>
+                            <td>@twitter</td>
+                            <td class="hidden-lg-down">
+                                <div class="utils__steps-inline d-block">
+                                    <a href="javascript: void(0);" class="utils__step utils__step--primary">1</a>
+                                    <a href="javascript: void(0);" class="utils__step">2</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown pull-right">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a class="dropdown-item" href="javascript: void(0)">Action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Another action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: void(0)">Separated link</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox">
+                            </th>
+                            <td><a href="javascript: void(0);" class="utils__link--underlined utils__link--blue"
+                                   data-toggle="tooltip"
+                                   data-placement="right" title="" data-original-title="User #1">Mark Stevenson</a></td>
+                            <td>@mdo</td>
+                            <td class="hidden-lg-down">
+                                <div class="utils__steps-inline d-block">
+                                    <a href="javascript: void(0);" class="utils__step utils__step--success">1</a>
+                                    <a href="javascript: void(0);" class="utils__step utils__step--success">2</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown pull-right">
+                                    <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        Actions
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a class="dropdown-item" href="javascript: void(0)">Action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Another action</a>
+                                        <a class="dropdown-item" href="javascript: void(0)">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript: void(0)">Separated link</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="utils__sortable" id="right-col">
+
+            <div class="card" data-order-id="card-3">
+                <div class="card-header">
+                    <div class="pull-right utils__sortable__control">
+                        <i class="icmn-minus mr-2 utils__sortable__collapse" data-toggle="tooltip" data-placement="left"
+                            title=""
+                            data-original-title="Comprimir"></i>
+                        <i class="icmn-cross utils__sortable__close" data-toggle="tooltip" data-placement="left"
+                            title=""
+                            data-original-title="Excluir"></i>
+                    </div>
+                    <div class="utils__title"><strong>Estatísticas</strong></div>
+                    <div class="utils__titleDescription">Resumo de todos os itens registrados</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="infoCard infoCard--whiteFont bg-success">
+                                <span class="infoCard__digit">
+                                    <i class="icmn-tree"></i>
+                                </span>
+                                <div class="infoCard__desc">
+                                    <span class="infoCard__title">ICs</span>
+                                    <p>Total: 78181</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="infoCard infoCard--whiteFont bg-primary">
+                                <span class="infoCard__digit">
+                                    <i class="icmn-display"></i>
+                                </span>
+                                <div class="infoCard__desc">
+                                    <span class="infoCard__title">Computadores</span>
+                                    <p>Total: 23573</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="infoCard infoCard--whiteFont bg-default">
+                                <span class="infoCard__digit">
+                                    <i class="icmn-users"></i>
+                                </span>
+                                <div class="infoCard__desc">
+                                    <span class="infoCard__title">Departamentos</span>
+                                    <p>Total: 34508</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="infoCard infoCard--whiteFont bg-danger">
+                                <span class="infoCard__digit">
+                                    <i class="icmn-truck"></i>
+                                </span>
+                                <div class="infoCard__desc">
+                                    <span class="infoCard__title">Fornecedores</span>
+                                    <p>Total: 2352</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="utils__margin-fix"><!-- --></div>
+                </div>
+            </div>
+
+            <div class="card" data-order-id="card-4">
+                <div class="card-header">
+                    <div class="pull-right utils__sortable__control">
+                        <i class="icmn-minus mr-2 utils__sortable__collapse" data-toggle="tooltip" data-placement="left"
+                           title=""
+                           data-original-title="Comprimir"></i>
+                        <i class="icmn-plus mr-2 utils__sortable__uncollapse" data-toggle="tooltip"
+                           data-placement="left" title=""
+                           data-original-title="Uncollapse"></i>
+                        <i class="icmn-cross utils__sortable__close" data-toggle="tooltip" data-placement="left"
+                           title=""
+                           data-original-title="Excluir"></i>
+                    </div>
+                    <div class="utils__title"><strong>Progresso</strong></div>
+                    <div class="utils__titleDescription">Block with important Work Progress information</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <strong>Work Progress:</strong>
+                            <p class="text-muted">Ipsum is simply dummy</p>
+                            <div class="progress mb-3" style="height: 7px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
+                            </div>
+                            <strong>Airplanes:</strong>
+                            <p class="text-muted">Typesetting industry</p>
+                            <div class="progress mb-3" style="height: 7px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
+                            </div>
+                            <strong>Robots:</strong>
+                            <p class="text-muted">Typesetting industry</p>
+                            <div class="progress mb-3" style="height: 7px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 35%"></div>
+                            </div>
+                            <strong>Automotive:</strong>
+                            <p class="text-muted">Typesetting industry</p>
+                            <div class="progress mb-3" style="height: 7px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 56%"></div>
+                            </div>
+                            <strong>Total Time:</strong>
+                            <p class="text-muted">Printing and typesetting</p>
+                            <div class="progress mb-3" style="height: 7px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                     role="progressbar"
+                                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 18%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: dashboard alpha -->
+
+<!-- START: page scripts -->
+<script>
+  (function($) {
+    "use strict";
+    $(function () {
+
+      ///////////////////////////////////////////////////////////
+      // tooltips
+      $('[data-toggle=tooltip]').tooltip()
+
+      ///////////////////////////////////////////////////////////
+      // jquery ui sortable
+      $('#left-col, #right-col, #bottom-col').each(function () {
+        $(this).sortable({
+          // connect left and right containers
+          connectWith: '.utils__sortable',
+          tolerance: 'pointer',
+          scroll: true,
+
+          // set initial order from localStorage
+          create: function () {
+
+            var that = $(this),
+              id = $(this).attr('id'),
+              orderLs = localStorage.getItem('order-' + id)
+
+            if (orderLs) {
+              var order = orderLs.split(',')
+
+              $.each(order, function (key, val) {
+                var el = $('[data-order-id=' + val + ']')
+                that.append(el)
+              })
+            }
+
+          },
+
+          // save order state on order update to localStorage
+          update: function () {
+            var orderArray = $(this).sortable('toArray', {attribute: 'data-order-id'}),
+              prefix = $(this).attr('id')
+
+            localStorage.setItem('order-' + prefix, orderArray)
+          },
+
+          // handler
+          handle: '.card-header'
+        })
+      })
+
+      ///////////////////////////////////////////////////////////
+      // card controls
+      $('.utils__sortable__collapse, .utils__sortable__uncollapse').on('click', function () {
+        $(this).closest('.card').toggleClass('utils__sortable__collapsed')
+      })
+      $('.utils__sortable__close').on('click', function () {
+        $(this).closest('.card').remove()
+        $('.tooltip').remove()
+      })
+
+      // header double click
+      $('.utils__sortable .card-header').on('dblclick', function () {
+        $(this).closest('.card').toggleClass('utils__sortable__collapsed')
+      })
+
+      ///////////////////////////////////////////////////////////
+      // datatables
+      $('#example1').DataTable({
+        responsive: true
+      })
+
+      ///////////////////////////////////////////////////////////
+      // calendar
+      $('.example-calendar-block').fullCalendar({
+        //aspectRatio: 2,
+        height: 475,
+        header: {
+          left: 'prev, next',
+          center: 'title',
+          right: 'month, agendaWeek, agendaDay'
+        },
+        buttonIcons: {
+          prev: 'none fa fa-arrow-left',
+          next: 'none fa fa-arrow-right',
+          prevYear: 'none fa fa-arrow-left',
+          nextYear: 'none fa fa-arrow-right'
+        },
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        viewRender: function (view, element) {
+          if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
+            $('.fc-scroller').jScrollPane({
+              autoReinitialise: true,
+              autoReinitialiseDelay: 100
+            })
+          }
+        },
+        defaultDate: '2017-05-12',
+        events: [
+          {
+            title: 'All Day Event',
+            start: '2017-05-01',
+            class: 'fc-event-success'
+          },
+          {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2017-05-09T16:00:00',
+            class: 'fc-event-default'
+          },
+          {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2017-05-16T16:00:00',
+            class: 'fc-event-success'
+          },
+          {
+            title: 'Conference',
+            start: '2017-05-11',
+            end: '2017-05-14',
+            class: 'fc-event-danger'
+          }
+        ],
+        eventClick: function (calEvent, jsEvent, view) {
+          if (!$(this).hasClass('event-clicked')) {
+            $('.fc-event').removeClass('event-clicked')
+            $(this).addClass('event-clicked')
+          }
+        }
+      })
+
+      ///////////////////////////////////////////////////////////
+      // ladda buttons
+      Ladda.bind('.ladda-button', {timeout: 2000})
+
+      ///////////////////////////////////////////////////////////
+      // chart1
+      new Chartist.Line('.chart-line', {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        series: [
+          [5, 0, 7, 8, 12],
+          [2, 1, 3.5, 7, 3],
+          [1, 3, 4, 5, 6]
+        ]
+      }, {
+        fullWidth: !0,
+        chartPadding: {
+          right: 40
+        },
+        plugins: [
+          Chartist.plugins.tooltip()
+        ]
+      })
+
+      ///////////////////////////////////////////////////////////
+      // chart 2
+      var overlappingData = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          series: [
+            [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+            [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
+          ]
+        },
+        overlappingOptions = {
+          seriesBarDistance: 10,
+          plugins: [
+            Chartist.plugins.tooltip()
+          ]
+        },
+        overlappingResponsiveOptions = [
+          ['', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0]
+              }
+            }
+          }]
+        ]
+
+      new Chartist.Bar('.chart-overlapping-bar', overlappingData, overlappingOptions, overlappingResponsiveOptions)
+
+      ///////////////////////////////////////////////////////////
+      // custom scroll
+      if (!('ontouchstart' in document.documentElement) && jQuery().jScrollPane) {
+        $('.custom-scroll').each(function () {
+          $(this).jScrollPane({
+            contentWidth: '100%',
+            autoReinitialise: true,
+            autoReinitialiseDelay: 100
+          })
+          var api = $(this).data('jsp'),
+            throttleTimeout
+          $(window).on('resize', function () {
+            if (!throttleTimeout) {
+              throttleTimeout = setTimeout(function () {
+                api.reinitialise()
+                throttleTimeout = null
+              }, 50)
+            }
+          })
+        })
+      }
+
+      ///////////////////////////////////////////////////////////
+      // adjustable textarea
+      autosize($('.adjustable-textarea'))
+
+      ///////////////////////////////////////////////////////////
+      // slider
+      $('#slider-1').ionRangeSlider({
+        min: 0,
+        max: 16000,
+        from: 12000,
+        step: 1000,
+        grid: true,
+        grid_num: 8
+      })
+
+      $('#slider-2').ionRangeSlider({
+        type: 'double',
+        min: 0,
+        max: 100,
+        from: 20,
+        from_min: 10,
+        from_max: 30,
+        from_shadow: true,
+        to: 60,
+        to_min: 50,
+        to_max: 70,
+        to_shadow: true,
+        grid: true,
+        grid_num: 10
+      })
+
+    })
+  })(jQuery)
+</script>
+<!-- END: page scripts -->
+
+</div>
+</body>
+</html>
