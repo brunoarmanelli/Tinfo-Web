@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Relatórios - Tinfo</title>
+    <title>Fornecedores - Tinfo</title>
     <link href="assets/icons/favicon.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
 
@@ -152,7 +152,7 @@
                 </a>
             </li>
 
-            <li  class="menu-left__item">
+            <li  class="menu-left__item menu-left__item--active">
                 <a href="fabricantes.html">
                     <span class="menu-left__icon icmn-hammer"></span>
                     Fabricantes
@@ -161,7 +161,7 @@
 
             <li class="menu-left__divider"><!-- --></li>
 
-            <li  class="menu-left__item menu-left__item--active">
+            <li  class="menu-left__item">
                 <a href="relatorios.html">
                     <span class="menu-left__icon icmn-file-text2"></span>
                     Relatórios
@@ -206,7 +206,7 @@
 <section class="card">
     <div class="card-header">
         <span class="utils__title">
-            <h1>Relatórios</h1>
+            <h1>Fornecedores</h1>
         </span>
     </div>
     <div class="card-body">
@@ -216,16 +216,16 @@
                     <table class="table table-hover nowrap" id="tabelaIC">
                         <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Nome</th>
-                            <th>Status</th>
+                            <th>ID</th>
+                            <th>Nome Fantasia</th>
+                            <th>CNPJ</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
-                            <th>Data</th>
-                            <th>Nome</th>
-                            <th>Status</th>
+                            <th>ID</th>
+                            <th>Nome Fantasia</th>
+                            <th>CNPJ</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -238,27 +238,29 @@
 
 <!-- START: page scripts -->
 <script>
-(function($) {
+  (function($) {
     "use strict";
     $(function () {
-    $('#tabelaIC').DataTable({
+      $('#tabelaIC').DataTable({
         responsive: true,
         "language": {
         "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
         },
         "processing" : true,
         "ajax" : {
-            "url" : "https://api.myjson.com/bins/",
+            "url" : "https://api.myjson.com/bins/15afj2",
             dataSrc : ''
         },
         "columns" : [ {
             "data" : "id"
         }, {
-            "data" : "name"
+            "data" : "nomeFantasia"
+        }, {
+            "data" : "cnpj"
         }]
+      });
     });
-    });
-})(jQuery)
+  })(jQuery)
 </script>
 <!-- END: page scripts -->
 </div>
