@@ -213,17 +213,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="mb-5">
-                    <table class="table table-hover nowrap" id="tabelaIC">
+                    <table class="table table-hover nowrap" id="tabelaUsuario">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Departamento</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Departamento</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -239,20 +241,22 @@
 (function($) {
     "use strict";
     $(function () {
-    $('#tabelaIC').DataTable({
+    $('#tabelaUsuario').DataTable({
         responsive: true,
         "language": {
         "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
         },
         "processing" : true,
         "ajax" : {
-            "url" : "https://api.myjson.com/bins/",
+            "url" : "https://api.myjson.com/bins/1565za",
             dataSrc : ''
         },
         "columns" : [ {
             "data" : "id"
         }, {
-            "data" : "name"
+            "data" : "nome"
+        }, {
+            "data" : "departamento.nome"
         }]
     });
     });
