@@ -432,17 +432,41 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"><b>Atenção!!!</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Tem certeza que deseja <b>deletar</b> esse IC?</h3>
+        <p>Essa ação intorromperá totalmente o fluxo do IC e irá apagá-lo completamente do sistema, não podendo mais ter nenhum registro dele.</p>
+        <p class="mb-0">Para finalizar/desativar um IC, utilize o botão "Desativar".</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-danger px-5">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Disable -->
+<div class="modal fade" id="modalDisable" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
         <h5 class="modal-title" id="modalTitle">Atenção!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Tem certeza que deseja deletar esse IC?</p>
+        <h3>Tem certeza que deseja <b>desativar</b> esse IC?</h3>
+        <p>Essa ação finalizará o fluxo do IC, alterando o seu estado para desativado, mantendo assim todos os seus registros no sistema.</p>
       </div>
       <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-danger px-5">Deletar</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-secondary px-5">Desativar</button>
       </div>
     </div>
   </div>
@@ -458,8 +482,11 @@ html += '</div>';
 html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Atualizar">';
 html += '<button type="button" class="btnUpdate btn btn-light py-2" data-toggle="modal" data-target="#modalUpdate"><svg class="i i-edit"><use xlink:href="icons.svg#i-edit"></use></svg></button>';
 html += '</div>';
-html += '<div class="text-center" data-toggle="tooltip" data-placement="top" title="Deletar">';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Deletar">';
 html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle="modal" data-target="#modalDelete"><svg class="i i-delete"><use xlink:href="icons.svg#i-delete"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center" data-toggle="tooltip" data-placement="top" title="Desativar">';
+html += '<button type="button" class="btnDisable btn btn-light py-2" data-toggle="modal" data-target="#modalDisable"><svg class="i i-settings_power"><use xlink:href="icons.svg#i-settings_power"></use></svg></button>';
 html += '</div>';
 html += '</div>';
 
