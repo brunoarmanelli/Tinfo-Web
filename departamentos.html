@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Departamentos - Tinfo</title>
+    <title>Tinfo - Departamentos</title>
     <link href="assets/icons/favicon.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
 
@@ -62,7 +62,7 @@
     <script src="vendors/datatables/media/js/dataTables.bootstrap4.js"></script>
     <script src="vendors/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
     <script src="vendors/datatables-responsive/js/dataTables.responsive.js"></script>
-    
+
     <script src="vendors/editable-table/mindmup-editabletable.js"></script>
     <script src="vendors/d3/d3.min.js"></script>
     <script src="vendors/c3/c3.min.js"></script>
@@ -96,6 +96,9 @@
     <link rel="stylesheet" type="text/css" href="components/apps/common/apps.cleanui.css">
     <script src="components/menu-left/common/menu-left.cleanui.js"></script>
     <script src="components/menu-right/common/menu-right.cleanui.js"></script>
+
+    <!-- IcoMoon -->
+    <link rel="stylesheet" href="assets/icons/icomoon/icomoon.css">
 </head>
 <body class="config--vertical config--borderLess menu-left--colorful menu-left--shadow">
 
@@ -203,10 +206,10 @@
 <div class="utils__content">
 
 <nav class="utils__top-sidebar utils__top-sidebar--bg">
-    <div class="pull-right">
-        <button type="button" class="btn btn-primary">
-            Novo Departamento
-        </button>
+    <div class="pull-right" data-toggle="tooltip" data-placement="left" title="Adicionar um novo Departamento">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addDepartamento">
+        <svg class="i i-plus-square"><use xlink:href="icons.svg#i-plus"></use></svg>
+      </button>
     </div>
     <span class="font-size-18 d-block mb-2">
         <span class="text-muted">Início ·</span>
@@ -247,6 +250,38 @@
 </section>
 <!-- END: tables/datatables -->
 
+<!-- Modal -->
+<div class="modal fade" id="addDepartamento" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Adicionar um novo Departamento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNome">Nome</label>
+              <input type="text" class="form-control" id="inputNome" placeholder="Nome do Departamento">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputLocalizacao">Localização</label>
+              <input type="text" class="form-control" id="inputLocalizacao" placeholder="Localização do Departamento">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success px-5">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- START: page scripts -->
 <script>
 (function($) {
@@ -273,6 +308,9 @@
     });
 })(jQuery)
 </script>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 </div>
 </body>
