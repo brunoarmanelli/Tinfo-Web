@@ -1,3 +1,4 @@
+// Static tipos
 var tipos = [{
   nome: "Hardware",
   subtipos: ["Computador", "Impressora", "Monitor", "Roteador"]
@@ -6,42 +7,67 @@ var tipos = [{
   subtipos: ["Gratuito", "Licenciado"]
 }]
 
-function disableSelect ($element, title) {
-  $element.attr("disabled", true);
-  $element.append(`<option selected>Nenhum ${title} cadastrado</option>`)
-}
+// Static fornecedores
+var fornecedores = ["Apple", "Asus", "Hewlett-Packard", "Lenovo"]
 
-function loadSelect ($element, data, firstDash = true) {
-  console.log(data)
+// Static responsáveis
+var responsaveis = ["Alan Turing", "Linus Torvalds", "Bill Gates", "Steve Jobs"]
 
-  if (firstDash)
-    $element.append("<option selected>-</option>");
-
-    for (var i = 0; i < data.length; i++)
-      $element.append(`<option value="${i}">${data[i]}</option>`);
-}
-
+// --- Document ready ---
 $(function () {
   // --- Inputs ---
   var inputTipo = $("#inputTipo");
   var inputSubtipo = $("#inputSubtipo");
   var inputFornecedor = $("#inputFornecedor");
+  var inputResponsavel = $("#modalUpdate #inputResponsavel");
 
-  // --- Loads ---
-  // Tipos
-  if (tipos.length > 0) {
-    var nomes = []
-    for (var i = 0; i < tipos.length; i++) {
-      nomes.push(tipos[i].nome);
+  function loadSelectData () {
+    // --- Data loads ---
+    // Tipos
+    if (tipos && tipos.length > 0) {
+      for (var i = 0; i < tipos.length; i++) {
+        loadSelect(inputTipo, [tipos[i].nome]);
+        if (tipos[i].subtipos && tipos[i].subtipos.length > 0)
+          loadSelect(inputSubtipo, tipos[i].subtipos);
+        else
+          disableSelect(inputSuptipo, "subtipo");
+      }
     }
-    loadSelect(inputTipo, nomes)
-  }
-  else
-    disableSelect(inputTipo, "tipo")
+    else {
+      disableSelect(inputTipo, "tipo");
+      disableSelect(inputSuptipo, "subtipo");
+    }
 
-  // Subtipos
-  // if (tipos.length > 0)
-  //   loadSelect(inputSubtipo, tipos)
-  // else
-  //   disableSelect(inputSubtipo, "tipo")
+    // Fornecedores
+    if (fornecedores && fornecedores.length > 0)
+      loadSelect(inputFornecedor, fornecedores);
+    else {
+      disableSelect(inputFornecedor, "fornecedor");
+    }
+  }
+
+  $(".btnAdd").on("click", function () {
+    loadSelectData();
+  })
+
+  $(".btnUpdate").on("click", function () {
+  })
+
+  // --- Table ---
+  var table = $("#tabelaIC");
+  var modal = $("#modalIC");
+  var modal_header = $("#modalIC .modal-header")
+
+  // $("#tabelaIC tbody").on("click", ".btnView", function () {
+  //
+  // })
+
+  $("#tabelaIC tbody").on("click", ".btnUpdate", function () {
+    // Fornecedores
+    if (responsaveis && responsaveis.length > 0)
+      loadSelect(inputResponsavel, responsaveis);
+    else {
+      disableSelect(inputResponsavel, "fornecedor");
+    }
+  })
 })

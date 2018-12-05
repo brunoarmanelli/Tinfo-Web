@@ -1,0 +1,23 @@
+#tabelaIC tbody tr td {
+  vertical-align: middle !important;
+}
+
+.btnView, .btnUpdate, .btnDelete {
+  transition:  background-color .5s, color .5s !important;
+}
+
+.btnView:hover, .btnUpdate:hover, .btnDelete:hover {
+  color: white
+}
+
+.btnView:hover {
+  background-color: #6c757d;
+}
+
+.btnUpdate:hover {
+  background-color: #f39834;
+}
+
+.btnDelete:hover {
+  background-color: #dc3545;
+}
