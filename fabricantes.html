@@ -99,6 +99,9 @@
 
     <!-- IcoMoon -->
     <link rel="stylesheet" href="assets/icons/icomoon/icomoon.css">
+
+    <!-- Personal -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="config--vertical config--borderLess menu-left--colorful menu-left--shadow">
 
@@ -207,7 +210,7 @@
 
 <nav class="utils__top-sidebar utils__top-sidebar--bg">
     <div class="pull-right" data-toggle="tooltip" data-placement="left" title="Adicionar um novo Fabricante">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addFabricante">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAdd">
           <svg class="i i-plus-square"><use xlink:href="icons.svg#i-plus"></use></svg>
         </button>
     </div>
@@ -233,6 +236,7 @@
                             <th>ID</th>
                             <th>Nome Fantasia</th>
                             <th>CNPJ</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -240,6 +244,7 @@
                             <th>ID</th>
                             <th>Nome Fantasia</th>
                             <th>CNPJ</th>
+                            <th></th>
                         </tr>
                         </tfoot>
                     </table>
@@ -250,8 +255,8 @@
 </section>
 <!-- END: tables/datatables -->
 
-<!-- Modal -->
-<div class="modal fade" id="addFabricante" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+<!-- Modal Add -->
+<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -286,31 +291,141 @@
   </div>
 </div>
 
+<!-- Modal View -->
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Informações sobre o Fabricante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNome">Nome</label>
+              <input type="text" class="form-control" id="inputNome" placeholder="Nome do Fabricante" disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCNPJ">CNPJ</label>
+              <input type="text" class="form-control" id="inputCNPJ" placeholder="CNPJ do Fabricante" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDescricao">Descrição</label>
+            <textarea class="form-control" id="inputDescricao" rows="3" placeholder="Uma breve descrição sobre o Fabricante" disabled></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update -->
+<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Atualizar Fabricante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNome">Nome</label>
+              <input type="text" class="form-control" id="inputNome" placeholder="Nome do Fabricante">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCNPJ">CNPJ</label>
+              <input type="text" class="form-control" id="inputCNPJ" placeholder="CNPJ do Fabricante">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDescricao">Descrição</label>
+            <textarea class="form-control" id="inputDescricao" rows="3" placeholder="Uma breve descrição sobre o Fabricante"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning px-5">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"><b>Atenção!!!</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Tem certeza que deseja <b>deletar</b> esse Fabricante?</h5>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-danger px-5">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- START: page scripts -->
 <script>
-  (function($) {
-    "use strict";
-    $(function () {
-      $('#tabelaIC').DataTable({
-        responsive: true,
-        "language": {
-        "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-        },
-        "processing" : true,
-        "ajax" : {
-            "url" : "https://api.myjson.com/bins/15afj2",
-            dataSrc : ''
-        },
-        "columns" : [ {
-            "data" : "id"
-        }, {
-            "data" : "nomeFantasia"
-        }, {
-            "data" : "cnpj"
-        }]
-      });
+var html = '';
+html += '<div class="d-flex justify-content-center">';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Mais informações">';
+html += '<button type="button" class="btnView btn btn-light py-2" data-toggle="modal" data-target="#modalView"><svg class="i i-info_outline"><use xlink:href="icons.svg#i-info_outline"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Atualizar">';
+html += '<button type="button" class="btnUpdate btn btn-light py-2" data-toggle="modal" data-target="#modalUpdate"><svg class="i i-edit"><use xlink:href="icons.svg#i-edit"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Deletar">';
+html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle="modal" data-target="#modalDelete"><svg class="i i-delete"><use xlink:href="icons.svg#i-delete"></use></svg></button>';
+html += '</div>';
+html += '</div>';
+
+(function($) {
+  "use strict";
+  $(function () {
+    $('#tabelaIC').DataTable({
+      "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
+      responsive: true,
+      "language": {
+      "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+      },
+      "processing" : true,
+      "ajax" : {
+          "url" : "https://api.myjson.com/bins/15afj2",
+          dataSrc : ''
+      },
+      "columns" : [ {
+          "data" : "id"
+      }, {
+          "data" : "nomeFantasia"
+      }, {
+          "data" : "cnpj"
+      }, {
+          "data" : null
+      }],
+      "columnDefs": [{
+          "targets": -1,
+          "data": null,
+          "defaultContent": html
+      }]
     });
-  })(jQuery)
+  });
+})(jQuery)
 </script>
 
 <script src="assets/js/script.js"></script>
