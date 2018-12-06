@@ -1,0 +1,27 @@
+.card .table tbody tr td {
+  vertical-align: middle !important;
+}
+
+.btnView, .btnUpdate, .btnDelete, .btnDisable {
+  transition:  background-color .5s, color .5s !important;
+}
+
+.btnView:hover, .btnUpdate:hover, .btnDelete:hover, .btnDisable:hover {
+  color: white
+}
+
+.btnView:hover {
+  background-color: #17a2b8;
+}
+
+.btnUpdate:hover {
+  background-color: #f39834;
+}
+
+.btnDelete:hover {
+  background-color: #dc3545;
+}
+
+.btnDisable:hover {
+  background-color: #6c757d;
+}

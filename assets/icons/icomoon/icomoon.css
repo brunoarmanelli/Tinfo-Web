@@ -1,0 +1,16 @@
+.i {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.i-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */

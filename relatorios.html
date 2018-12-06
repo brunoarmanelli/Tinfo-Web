@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Relatórios - Tinfo</title>
+    <title>Tinfo - Relatórios</title>
     <link href="assets/icons/favicon.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
 
@@ -62,7 +62,7 @@
     <script src="vendors/datatables/media/js/dataTables.bootstrap4.js"></script>
     <script src="vendors/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
     <script src="vendors/datatables-responsive/js/dataTables.responsive.js"></script>
-    
+
     <script src="vendors/editable-table/mindmup-editabletable.js"></script>
     <script src="vendors/d3/d3.min.js"></script>
     <script src="vendors/c3/c3.min.js"></script>
@@ -96,6 +96,9 @@
     <link rel="stylesheet" type="text/css" href="components/apps/common/apps.cleanui.css">
     <script src="components/menu-left/common/menu-left.cleanui.js"></script>
     <script src="components/menu-right/common/menu-right.cleanui.js"></script>
+
+    <!-- IcoMoon -->
+    <link rel="stylesheet" href="assets/icons/icomoon/icomoon.css">
 </head>
 <body class="config--vertical config--borderLess menu-left--colorful menu-left--shadow">
 
@@ -266,11 +269,16 @@
             "data" : "id"
         }, {
             "data" : "name"
+        }, {
+            "data" : "status"
         }]
     });
     });
 })(jQuery)
 </script>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 </div>
 </body>

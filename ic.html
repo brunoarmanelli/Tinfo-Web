@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Itens de Configuração - Tinfo</title>
+    <title>Tinfo - Itens de Configuração</title>
     <link href="assets/icons/favicon.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i" rel="stylesheet">
 
@@ -62,7 +62,7 @@
     <script src="vendors/datatables/media/js/dataTables.bootstrap4.js"></script>
     <script src="vendors/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
     <script src="vendors/datatables-responsive/js/dataTables.responsive.js"></script>
-    
+
     <script src="vendors/editable-table/mindmup-editabletable.js"></script>
     <script src="vendors/d3/d3.min.js"></script>
     <script src="vendors/c3/c3.min.js"></script>
@@ -96,6 +96,12 @@
     <link rel="stylesheet" type="text/css" href="components/apps/common/apps.cleanui.css">
     <script src="components/menu-left/common/menu-left.cleanui.js"></script>
     <script src="components/menu-right/common/menu-right.cleanui.js"></script>
+
+    <!-- IcoMoon -->
+    <link rel="stylesheet" href="assets/icons/icomoon/icomoon.css">
+
+    <!-- Personal -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="config--vertical config--borderLess menu-left--colorful menu-left--shadow">
 
@@ -203,9 +209,9 @@
 <div class="utils__content">
 
 <nav class="utils__top-sidebar utils__top-sidebar--bg">
-    <div class="pull-right">
-        <button type="button" class="btn btn-primary">
-            Novo IC
+    <div class="pull-right" data-toggle="tooltip" data-placement="left" title="Adicionar um novo IC">
+        <button type="button" class="btn btn-success btnAdd" data-toggle="modal" data-target="#modalAdd">
+          <svg class="i i-plus-square"><use xlink:href="icons.svg#i-plus"></use></svg>
         </button>
     </div>
     <span class="font-size-18 d-block mb-2">
@@ -229,19 +235,19 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tipo</th>
-                            <th>Subtipo</th>
                             <th>Nome</th>
+                            <th>Subtipo</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Tipo</th>
-                            <th>Subtipo</th>
                             <th>Nome</th>
+                            <th>Subtipo</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                         </tfoot>
                     </table>
@@ -252,36 +258,252 @@
 </section>
 <!-- END: tables/datatables -->
 
+<!-- Modal Add -->
+<div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Adicionar um novo IC</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="formAdd" action="/cadastroComputador" method="post">
+          <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input name="nome" type="text" class="form-control" id="inputNome" placeholder="Nome do IC">
+          </div>
+          <div class="form-row">
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputTipo">Tipo</label>
+              </div>
+              <select name="tipo" class="custom-select text-center" id="inputTipo"></select>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputSubtipo">Subtipo</label>
+              </div>
+              <select name="subtipo" class="custom-select" id="inputSubtipo" disabled>
+                <option selected>-</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputFornecedor">Fornecedor</label>
+            </div>
+            <select name="fornecedor" class="custom-select" id="inputFornecedor"></select>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPreco">Preço</label>
+              <input type="number" class="form-control" id="inputPreco" placeholder="Preço do IC">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAquisicao">Data de aquisição</label>
+              <input name="aquisicao" type="date" class="form-control" id="inputAquisicao" placeholder="Data de aquisição do IC">
+            </div>
+          </div>
+          <div class="specificity d-none">
+            <hr>
+            <div class="form-group">
+              <label for="inputResponsavel">Responsável</label>
+              <select name="responsavel" class="custom-select" id="inputResponsavel"></select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button form="formAdd" type="submit" class="btn btn-success px-5">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal View -->
+<div class="modal fade" id="modalView" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Informações sobre o IC</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome do IC" disabled>
+          </div>
+          <div class="form-row">
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputTipo">Tipo</label>
+              </div>
+              <select class="custom-select text-center" id="inputTipo" disabled></select>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputSubtipo">Subtipo</label>
+              </div>
+              <select class="custom-select" id="inputSubtipo" disabled></select>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputFornecedor">Fornecedor</label>
+            </div>
+            <select class="custom-select" id="inputFornecedor" disabled></select>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPreco">Preço</label>
+              <input type="number" class="form-control" id="inputPreco" placeholder="Preço do IC" disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAquisicao">Data de aquisição</label>
+              <input type="date" class="form-control" id="inputAquisicao" placeholder="Data de aquisição do IC" disabled>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update -->
+<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Atualizar IC</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome do IC">
+          </div>
+          <div class="form-row">
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputTipo">Tipo</label>
+              </div>
+              <select class="custom-select text-center" id="inputTipo"></select>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputSubtipo">Subtipo</label>
+              </div>
+              <select class="custom-select" id="inputSubtipo"></select>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputFornecedor">Fornecedor</label>
+            </div>
+            <select class="custom-select" id="inputFornecedor"></select>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPreco">Preço</label>
+              <input type="number" class="form-control" id="inputPreco" placeholder="Preço do IC">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAquisicao">Data de aquisição</label>
+              <input type="date" class="form-control" id="inputAquisicao" placeholder="Data de aquisição do IC">
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="inputResponsavel">Responsável</label>
+            <select class="custom-select" id="inputResponsavel"></select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning px-5">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"><b>Atenção!!!</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Tem certeza que deseja <b>deletar</b> esse IC?</h3>
+        <p>Essa ação intorromperá totalmente o fluxo do IC e irá apagá-lo completamente do sistema, não podendo mais ter nenhum registro dele.</p>
+        <p class="mb-0">Para finalizar/desativar um IC, utilize o botão "Desativar".</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-danger px-5">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Disable -->
+<div class="modal fade" id="modalDisable" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Atenção!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Tem certeza que deseja <b>desativar</b> esse IC?</h3>
+        <p>Essa ação finalizará o fluxo do IC, alterando o seu estado para desativado, mantendo assim todos os seus registros no sistema.</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-secondary px-5">Desativar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- START: page scripts -->
-<script>
-(function($) {
-    "use strict";
-    $(function () {
-    $('#tabelaIC').DataTable({
-        responsive: true,
-        "language": {
-        "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-        },
-        "processing" : true,
-        "ajax" : {
-            "url" : "https://api.myjson.com/bins/a9jyu",
-            dataSrc : ''
-        },
-        "columns" : [ {
-            "data" : "id"
-        }, {
-            "data" : "tipo"
-        }, {
-            "data" : "subtipo"
-        }, {
-            "data" : "nome"
-        }, {
-            "data" : "status"
-        }]
-    });
-    });
-})(jQuery)
+
+<script type="text/javascript">
+var html = '';
+html += '<div class="d-flex justify-content-center">';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Mais informações">';
+html += '<button type="button" class="btnView btn btn-light py-2" data-toggle="modal" data-target="#modalView"><svg class="i i-info_outline"><use xlink:href="icons.svg#i-info_outline"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Atualizar">';
+html += '<button type="button" class="btnUpdate btn btn-light py-2" data-toggle="modal" data-target="#modalUpdate"><svg class="i i-edit"><use xlink:href="icons.svg#i-edit"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Deletar">';
+html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle="modal" data-target="#modalDelete"><svg class="i i-delete"><use xlink:href="icons.svg#i-delete"></use></svg></button>';
+html += '</div>';
+html += '<div class="text-center" data-toggle="tooltip" data-placement="top" title="Desativar">';
+html += '<button type="button" class="btnDisable btn btn-light py-2" data-toggle="modal" data-target="#modalDisable"><svg class="i i-settings_power"><use xlink:href="icons.svg#i-settings_power"></use></svg></button>';
+html += '</div>';
+html += '</div>';
 </script>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/js/ic.js"></script>
+<script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 </div>
 </body>
