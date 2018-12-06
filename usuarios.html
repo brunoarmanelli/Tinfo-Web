@@ -372,6 +372,10 @@
 </div>
 
 <!-- START: page scripts -->
+<script src="assets/js/script.js"></script>
+<script src="assets/js/usuarios.js"></script>
+<script src="assets/icons/icomoon/icomoon.js"></script>
+
 <script>
 var html = '';
 html += '<div class="d-flex justify-content-center">';
@@ -386,42 +390,35 @@ html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle=
 html += '</div>';
 html += '</div>';
 
-(function($) {
-    "use strict";
-    $(function () {
-    $('#tabelaUsuario').DataTable({
-      "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
-      responsive: true,
-      "language": {
-      "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-      },
-      "processing" : true,
-      "ajax" : {
-          "url" : "https://api.myjson.com/bins/1565za",
-          dataSrc : ''
-      },
-      "columns" : [ {
-          "data" : "id"
-      }, {
-          "data" : "nome"
-      }, {
-          "data" : "departamento.nome"
-      }, {
-          "data" : null
-      }],
-      "columnDefs": [ {
-          "targets": -1,
-          "data": null,
-          "defaultContent": html
-      } ]
-    });
-    });
-})(jQuery)
+$(function () {
+  $('#tabelaUsuario').DataTable({
+    "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
+    responsive: true,
+    "language": {
+    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+    },
+    "processing" : true,
+    "ajax" : {
+        "url" :`${HOST}/getUsuarios`,
+        dataSrc : ''
+    },
+    "columns" : [ {
+        "data" : "id"
+    }, {
+        "data" : "nome"
+    }, {
+        "data" : "departamento.nome"
+    }, {
+        "data" : null
+    }],
+    "columnDefs": [ {
+        "targets": -1,
+        "data": null,
+        "defaultContent": html
+    } ]
+  });
+});
 </script>
-
-<script src="assets/js/script.js"></script>
-<script src="assets/js/usuarios.js"></script>
-<script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 </div>
 </body>

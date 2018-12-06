@@ -235,7 +235,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome Fantasia</th>
-                            <th>CNPJ</th>
+                            <th>Descricao</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -243,7 +243,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome Fantasia</th>
-                            <th>CNPJ</th>
+                            <th>Descricao</th>
                             <th></th>
                         </tr>
                         </tfoot>
@@ -395,37 +395,34 @@ html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle=
 html += '</div>';
 html += '</div>';
 
-(function($) {
-  "use strict";
-  $(function () {
-    $('#tabelaIC').DataTable({
-      "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
-      responsive: true,
-      "language": {
-      "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-      },
-      "processing" : true,
-      "ajax" : {
-          "url" : "https://api.myjson.com/bins/15afj2",
-          dataSrc : ''
-      },
-      "columns" : [ {
-          "data" : "id"
-      }, {
-          "data" : "nomeFantasia"
-      }, {
-          "data" : "cnpj"
-      }, {
-          "data" : null
-      }],
-      "columnDefs": [{
-          "targets": -1,
-          "data": null,
-          "defaultContent": html
-      }]
-    });
+$(function () {
+  $('#tabelaIC').DataTable({
+    "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
+    responsive: true,
+    "language": {
+    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+    },
+    "processing" : true,
+    "ajax" : {
+        "url" : `${HOST}/getFabricantes`,
+        dataSrc : ''
+    },
+    "columns" : [ {
+        "data" : "id"
+    }, {
+        "data" : "nome"
+    }, {
+        "data" : "descricao"
+    }, {
+        "data" : null
+    }],
+    "columnDefs": [{
+        "targets": -1,
+        "data": null,
+        "defaultContent": html
+    }]
   });
-})(jQuery)
+});
 </script>
 
 <script src="assets/js/script.js"></script>

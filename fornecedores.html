@@ -369,6 +369,9 @@
 </div>
 
 <!-- START: page scripts -->
+<script src="assets/js/script.js"></script>
+<script src="assets/icons/icomoon/icomoon.js"></script>
+
 <script>
 var html = '';
 html += '<div class="d-flex justify-content-center">';
@@ -383,41 +386,35 @@ html += '<button type="button" class="btnDelete btn btn-light py-2" data-toggle=
 html += '</div>';
 html += '</div>';
 
-(function($) {
-  "use strict";
-  $(function () {
-    $('#tabelaFornecedores').DataTable({
-      "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
-      responsive: true,
-      "language": {
-      "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-      },
-      "processing" : true,
-      "ajax" : {
-          "url" : "https://api.myjson.com/bins/15afj2",
-          dataSrc : ''
-      },
-      "columns" : [ {
-          "data" : "id"
-      }, {
-          "data" : "nomeFantasia"
-      }, {
-          "data" : "cnpj"
-      }, {
-          "data" : null
-      }],
-      "columnDefs": [{
-          "targets": -1,
-          "data": null,
-          "defaultContent": html
-      }]
-    });
+$(function () {
+  $('#tabelaFornecedores').DataTable({
+    "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
+    responsive: true,
+    "language": {
+    "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+    },
+    "processing" : true,
+    "ajax" : {
+        "url" : `${HOST}/getFornecedores`,
+        dataSrc : ''
+    },
+    "columns" : [ {
+        "data" : "id"
+    }, {
+        "data" : "nomeFantasia"
+    }, {
+        "data" : "cnpj"
+    }, {
+        "data" : null
+    }],
+    "columnDefs": [{
+        "targets": -1,
+        "data": null,
+        "defaultContent": html
+    }]
   });
-})(jQuery)
+});
 </script>
-
-<script src="assets/js/script.js"></script>
-<script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 </div>
 </body>

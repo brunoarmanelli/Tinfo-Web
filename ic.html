@@ -210,7 +210,7 @@
 
 <nav class="utils__top-sidebar utils__top-sidebar--bg">
     <div class="pull-right" data-toggle="tooltip" data-placement="left" title="Adicionar um novo IC">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalAdd">
+        <button type="button" class="btn btn-success btnAdd" data-toggle="modal" data-target="#modalAdd">
           <svg class="i i-plus-square"><use xlink:href="icons.svg#i-plus"></use></svg>
         </button>
     </div>
@@ -269,30 +269,32 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form id="formAdd" action="/cadastroComputador" method="post">
           <div class="form-group">
             <label for="inputNome">Nome</label>
-            <input type="text" class="form-control" id="inputNome" placeholder="Nome do IC">
+            <input name="nome" type="text" class="form-control" id="inputNome" placeholder="Nome do IC">
           </div>
           <div class="form-row">
             <div class="input-group mb-3 col-md-6">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputTipo">Tipo</label>
               </div>
-              <select class="custom-select text-center" id="inputTipo"></select>
+              <select name="tipo" class="custom-select text-center" id="inputTipo"></select>
             </div>
             <div class="input-group mb-3 col-md-6">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputSubtipo">Subtipo</label>
               </div>
-              <select class="custom-select" id="inputSubtipo"></select>
+              <select name="subtipo" class="custom-select" id="inputSubtipo" disabled>
+                <option selected>-</option>
+              </select>
             </div>
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputFornecedor">Fornecedor</label>
             </div>
-            <select class="custom-select" id="inputFornecedor"></select>
+            <select name="fornecedor" class="custom-select" id="inputFornecedor"></select>
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -301,14 +303,21 @@
             </div>
             <div class="form-group col-md-6">
               <label for="inputAquisicao">Data de aquisição</label>
-              <input type="date" class="form-control" id="inputAquisicao" placeholder="Data de aquisição do IC">
+              <input name="aquisicao" type="date" class="form-control" id="inputAquisicao" placeholder="Data de aquisição do IC">
+            </div>
+          </div>
+          <div class="specificity d-none">
+            <hr>
+            <div class="form-group">
+              <label for="inputResponsavel">Responsável</label>
+              <select name="responsavel" class="custom-select" id="inputResponsavel"></select>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer d-flex justify-content-between">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success px-5">Adicionar</button>
+        <button form="formAdd" type="submit" class="btn btn-success px-5">Adicionar</button>
       </div>
     </div>
   </div>
@@ -473,7 +482,8 @@
 </div>
 
 <!-- START: page scripts -->
-<script>
+
+<script type="text/javascript">
 var html = '';
 html += '<div class="d-flex justify-content-center">';
 html += '<div class="text-center mr-2" data-toggle="tooltip" data-placement="top" title="Mais informações">';
@@ -489,40 +499,6 @@ html += '<div class="text-center" data-toggle="tooltip" data-placement="top" tit
 html += '<button type="button" class="btnDisable btn btn-light py-2" data-toggle="modal" data-target="#modalDisable"><svg class="i i-settings_power"><use xlink:href="icons.svg#i-settings_power"></use></svg></button>';
 html += '</div>';
 html += '</div>';
-
-(function($) {
-    "use strict";
-    $(function () {
-      $('#tabelaIC').DataTable({
-        "initComplete": function () { $('[data-toggle="tooltip"]').tooltip() },
-        responsive: true,
-        "language": {
-        "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-        },
-        "processing" : true,
-        "ajax" : {
-            "url" : "https://api.myjson.com/bins/a9jyu",
-            dataSrc : ''
-        },
-        "columns" : [ {
-            "data" : "id"
-        },{
-            "data" : "nome"
-        }, {
-            "data" : "subtipo"
-        }, {
-            "data" : "status"
-        }, {
-          "data"   : null
-        }],
-        "columnDefs": [ {
-            "targets": -1,
-            "data": null,
-            "defaultContent": html
-        } ]
-      });
-    });
-})(jQuery)
 </script>
 
 <script src="assets/js/script.js"></script>

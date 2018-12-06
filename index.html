@@ -249,7 +249,7 @@
                                     <div class="mb-2">
                                         <p> Fornecedores </p>
                                     </div>
-                                    <a href="javascript: void(0);" class="btn btn-outline-primary">
+                                    <a href="fornecedores.html" class="btn btn-outline-primary">
                                         Acessar
                                     </a>
                                 </div>
@@ -264,7 +264,7 @@
                                     <div class="mb-2">
                                         <p> Computadores </p>
                                     </div>
-                                    <a href="javascript: void(0);" class="btn btn-outline-success">
+                                    <a href="ic.html" class="btn btn-outline-success">
                                         Acessar
                                     </a>
                                 </div>
@@ -279,7 +279,7 @@
                                     <div class="mb-2">
                                         <p> Departamentos </p>
                                     </div>
-                                    <a href="javascript: void(0);" class="btn btn-outline-danger">
+                                    <a href="departamentos.html" class="btn btn-outline-danger">
                                         Acessar
                                     </a>
                                 </div>
@@ -460,49 +460,59 @@
                     <div class="utils__title"><strong>Estatísticas</strong></div>
                     <div class="utils__titleDescription">Resumo de todos os itens registrados</div>
                 </div>
-                <div class="card-body">
+                <div class="card-body estatisticas">
                     <div class="row">
                         <div class="col-xl-6">
-                            <div class="infoCard infoCard--whiteFont bg-success">
+                            <div class="infoCard infoCard--whiteFont bg-success ICs">
                                 <span class="infoCard__digit">
                                     <i class="icmn-tree"></i>
                                 </span>
                                 <div class="infoCard__desc">
                                     <span class="infoCard__title">ICs</span>
-                                    <p>Total: 78181</p>
+                                    <div class="mt-5">
+                                      <p><b>Qtd. total: </b><span class="qtd_total">-</span></p>
+                                      <p><b>Custo acumulado: </b>R$<span class="custo_acumulado">-</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="infoCard infoCard--whiteFont bg-primary">
+                            <div class="infoCard infoCard--whiteFont bg-primary computadores">
                                 <span class="infoCard__digit">
                                     <i class="icmn-display"></i>
                                 </span>
                                 <div class="infoCard__desc">
                                     <span class="infoCard__title">Computadores</span>
-                                    <p>Total: 23573</p>
+                                    <div class="mt-5">
+                                      <p><b>Qtd. total: </b><span class="qtd_total">-</span></p>
+                                      <p><b>Custo acumulado: </b>R$<span class="custo_acumulado">-</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="infoCard infoCard--whiteFont bg-default">
+                            <div class="infoCard infoCard--whiteFont bg-default departamentos">
                                 <span class="infoCard__digit">
                                     <i class="icmn-users"></i>
                                 </span>
                                 <div class="infoCard__desc">
                                     <span class="infoCard__title">Departamentos</span>
-                                    <p>Total: 34508</p>
+                                    <div class="mt-5">
+                                      <p><b>Qtd. total: </b><span class="qtd_total">-</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="infoCard infoCard--whiteFont bg-danger">
+                            <div class="infoCard infoCard--whiteFont bg-danger fornecedores">
                                 <span class="infoCard__digit">
                                     <i class="icmn-truck"></i>
                                 </span>
                                 <div class="infoCard__desc">
                                     <span class="infoCard__title">Fornecedores</span>
-                                    <p>Total: 2352</p>
+                                    <div class="mt-5">
+                                      <p><b>Qtd. total: </b><span class="qtd_total">-</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -810,6 +820,7 @@
 </script>
 
 <script src="assets/js/script.js"></script>
+<script src="assets/js/painel.js"></script>
 <script src="assets/icons/icomoon/icomoon.js"></script>
 <!-- END: page scripts -->
 
